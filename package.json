@@ -1,0 +1,17 @@
+{
+  "name": "linkedin-viral-meter",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Upload your LinkedIn posts as CSV, let TypeSafe Jev label them, see what separates your viral posts from your flops, and score new drafts in about a second.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "analyze": "node --env-file-if-exists=.env cli.mjs analyze",
+    "score": "node --env-file-if-exists=.env cli.mjs score",
+    "explain": "node --env-file-if-exists=.env cli.mjs explain",
+    "reset": "node --env-file-if-exists=.env cli.mjs reset",
+    "check": "node --env-file-if-exists=.env check.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

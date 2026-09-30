@@ -1,0 +1,12 @@
+# Your posts, labels, analysis and drafts stay local
+data/
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+
+# Post exports you drop in the folder
+*.csv
+*.tsv
+!examples/*.csv

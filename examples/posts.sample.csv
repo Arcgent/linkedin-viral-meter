@@ -1,0 +1,816 @@
+date,format,impressions,reactions,comments,reposts,text
+2026-09-22,video,6805,123,18,3,"Stop hiring people to do invoice matching.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to invoice matching.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with n8n.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+What is the first process you would hand to an agent?"
+2026-09-18,text,5540,120,14,7,"Stop hiring people to do inbox sorting.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to inbox sorting.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Gmail.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+What is the first process you would hand to an agent?"
+2026-09-11,carousel,1161,14,1,2,"I saved 8 hours a week by automating quote requests.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's quote requests or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-09-03,text,1600,32,3,0,"Here is how I automate quote requests in one afternoon.
+
+Here's what the agent does:
+
+✅ Reads every new quote request in Make
+✅ Checks it against the price list
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €35 a month.
+
+Result: quotes go out in 20 minutes instead of 2 days.
+
+Agree?"
+2026-08-28,image,8231,197,127,9,"Onboarding new hires is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to onboarding new hires.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Notion.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Want the workflow?
+Comment ONBOARD and I'll send it to you."
+2026-08-23,text,3496,76,12,1,"Last Tuesday a client called me in a panic about purchase orders.
+
+Here's what the agent does:
+
+✅ Reads every new purchase order in n8n
+✅ Checks it against the approved budget
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 310 purchase orders approved last month with two clicks each.
+
+Agree?"
+2026-08-19,video,6234,101,21,2,"Contract review is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to contract review.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Claude.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Full walkthrough in the first comment."
+2026-08-12,image,874,20,3,1,"Stop hiring people to do onboarding new hires.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's onboarding new hires or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-08-05,text,1441,26,3,0,"Support triage is the most underrated process to automate.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is support triage. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Agree?"
+2026-07-29,image,231,4,1,0,"AI is changing the way we work.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's onboarding new hires or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-07-25,text,2175,28,6,1,"Stop hiring people to do stock alerts.
+
+Here's what the agent does:
+
+✅ Reads every new stock level in Airtable
+✅ Checks it against the reorder point
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €12 a month.
+
+Result: no stockouts in 11 weeks, down from 4 a month.
+
+Agree?"
+2026-07-20,text,1395,25,5,0,"How many hours does your team lose to support triage every week?
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to support triage.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Zendesk.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+What is the first process you would hand to an agent?"
+2026-07-15,image,781,13,1,0,"I almost gave up on automating support triage.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's support triage or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+What is the first process you would hand to an agent?"
+2026-07-09,video,1687,31,3,2,"Support triage is the most underrated process to automate.
+
+Here's what the agent does:
+
+✅ Reads every new support ticket in Zendesk
+✅ Checks it against the help center
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €90 a month.
+
+Result: 61% of tickets answered in under two minutes."
+2026-07-01,text,4380,71,13,4,"I almost gave up on automating stock alerts.
+
+How to automate stock alerts this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Airtable
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+What is the first process you would hand to an agent?"
+2026-06-23,text,620,9,10,0,"AI is changing the way we work.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is candidate screening. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Want the workflow?
+Comment HIRING and I'll send it to you."
+2026-06-16,text,1254,25,5,1,"Meeting notes is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to meeting notes.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with HubSpot.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Agree?"
+2026-06-10,text,5637,123,14,5,"Last Tuesday a client called me in a panic about stock alerts.
+
+Here's what the agent does:
+
+✅ Reads every new stock level in Airtable
+✅ Checks it against the reorder point
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €12 a month.
+
+Result: no stockouts in 11 weeks, down from 4 a month.
+
+Full walkthrough in the first comment."
+2026-06-04,carousel,941,20,4,1,"How many hours does your team lose to contract review every week?
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to contract review.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Claude.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part."
+2026-05-31,carousel,1735,32,2,2,"Stop hiring people to do weekly reporting.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is weekly reporting. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Agree?"
+2026-05-26,text,3582,62,9,5,"Stop hiring people to do invoice matching.
+
+Here's what the agent does:
+
+✅ Reads every new invoice in n8n
+✅ Checks it against the purchase order
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €40 a month.
+
+Result: 1,240 invoices matched last month without a human touching them.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-05-22,image,1868,25,6,2,"Stop hiring people to do onboarding new hires.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is onboarding new hires. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Full walkthrough in the first comment."
+2026-05-14,video,1635,35,3,1,"Stop hiring people to do lead research.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's lead research or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+What is the first process you would hand to an agent?"
+2026-05-10,carousel,761,12,1,0,"AI is changing the way we work.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is contract review. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-05-03,text,4420,67,7,4,"Stop hiring people to do meeting notes.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to meeting notes.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with HubSpot.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Full walkthrough in the first comment."
+2026-04-28,text,1147,19,2,2,"How many hours does your team lose to meeting notes every week?
+
+Here's what the agent does:
+
+✅ Reads every new sales call in HubSpot
+✅ Checks it against the open deal
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €25 a month.
+
+Result: 96 calls logged in the CRM last month, zero typed by hand.
+
+Full walkthrough in the first comment."
+2026-04-24,text,1807,24,3,1,"How many hours does your team lose to support triage every week?
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to support triage.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Zendesk.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Full walkthrough in the first comment."
+2026-04-20,text,8754,163,22,10,"I almost gave up on automating candidate screening.
+
+Here's what the agent does:
+
+✅ Reads every new application in Ashby
+✅ Checks it against the job scorecard
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 700 applications screened in the time it took to read 50."
+2026-04-12,image,1583,30,3,2,"Candidate screening is the most underrated process to automate.
+
+How to automate candidate screening this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Ashby
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+Full walkthrough in the first comment."
+2026-04-07,video,1969,31,3,1,"Quote requests is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to quote requests.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Make.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part."
+2026-03-31,text,3910,82,58,3,"How many hours does your team lose to stock alerts every week?
+
+How to automate stock alerts this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Airtable
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+Want the workflow?
+Comment STOCK and I'll send it to you."
+2026-03-26,carousel,442,8,1,0,"Innovation starts with the right mindset.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is support triage. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait."
+2026-03-19,carousel,3203,52,6,1,"I almost gave up on automating meeting notes.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to meeting notes.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with HubSpot.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Agree?"
+2026-03-13,carousel,3374,73,57,4,"Here is how I automate stock alerts in one afternoon.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is stock alerts. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Want the workflow?
+Comment STOCK and I'll send it to you."
+2026-03-08,image,2049,32,8,2,"This agent took stock alerts off our plate. 3 hours a week.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is stock alerts. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Agree?"
+2026-03-02,video,7081,86,12,3,"This agent took lead research off our plate. 9 hours a week.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to lead research.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Clay.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-02-24,image,11755,221,160,1,"Stop hiring people to do weekly reporting.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to weekly reporting.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Google Sheets.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Want the workflow?
+Comment REPORT and I'll send it to you."
+2026-02-18,text,921,14,2,0,"I almost gave up on automating onboarding new hires.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's onboarding new hires or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+What is the first process you would hand to an agent?"
+2026-02-10,video,280,7,0,0,"AI is changing the way we work.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's purchase orders or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+What is the first process you would hand to an agent?"
+2026-02-06,text,3070,42,7,4,"Here is how I automate inbox sorting in one afternoon.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to inbox sorting.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Gmail.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-01-30,image,243,4,0,0,"Innovation starts with the right mindset.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's meeting notes or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+#AI #automation #futureofwork #innovation #productivity"
+2026-01-22,video,1494,25,6,1,"How many hours does your team lose to meeting notes every week?
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to meeting notes.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with HubSpot.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+Full walkthrough in the first comment."
+2026-01-16,carousel,293,7,1,0,"AI is changing the way we work.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's onboarding new hires or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+What is the first process you would hand to an agent?"
+2026-01-10,video,2182,46,6,0,"Purchase orders is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to purchase orders.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with n8n.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+What is the first process you would hand to an agent?"
+2026-01-03,carousel,3046,62,12,1,"I almost gave up on automating candidate screening.
+
+Here's what the agent does:
+
+✅ Reads every new application in Ashby
+✅ Checks it against the job scorecard
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 700 applications screened in the time it took to read 50.
+
+What is the first process you would hand to an agent?"
+2025-12-30,text,1393,20,4,2,"Candidate screening is the most underrated process to automate.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is candidate screening. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+Agree?"
+2025-12-25,text,5792,76,14,6,"I almost gave up on automating weekly reporting.
+
+How to automate weekly reporting this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Google Sheets
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+What is the first process you would hand to an agent?"
+2025-12-18,text,13245,300,167,2,"I saved 5 hours a week by automating weekly reporting.
+
+Here's what the agent does:
+
+✅ Reads every new Monday report in Google Sheets
+✅ Checks it against last week's numbers
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €10 a month.
+
+Result: the Monday report now lands at 7:00, before anyone opens a laptop.
+
+Want the workflow?
+Comment REPORT and I'll send it to you."
+2025-12-12,carousel,6943,154,109,7,"Stock alerts is the most underrated process to automate.
+
+Here's what the agent does:
+
+✅ Reads every new stock level in Airtable
+✅ Checks it against the reorder point
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €12 a month.
+
+Result: no stockouts in 11 weeks, down from 4 a month.
+
+Want the workflow?
+Comment STOCK and I'll send it to you."
+2025-12-06,image,3585,45,9,4,"Stop hiring people to do meeting notes.
+
+Here's what the agent does:
+
+✅ Reads every new sales call in HubSpot
+✅ Checks it against the open deal
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €25 a month.
+
+Result: 96 calls logged in the CRM last month, zero typed by hand.
+
+Full walkthrough in the first comment."
+2025-11-29,carousel,3162,48,9,3,"Here is how I automate inbox sorting in one afternoon.
+
+How to automate inbox sorting this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Gmail
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+What is the first process you would hand to an agent?"
+2025-11-23,image,461,10,1,0,"AI is changing the way we work.
+
+Most teams start automation in the wrong place.
+
+They pick the process that looks impressive in a demo. Then they spend months on edge cases and nobody uses the result.
+
+A better first project is stock alerts. It is repetitive, it has clear rules and everyone hates doing it.
+
+That is where AI earns trust first. The impressive stuff can wait.
+
+#AI #automation #futureofwork #innovation #productivity"
+2025-11-16,carousel,2210,41,3,3,"Purchase orders is the most underrated process to automate.
+
+Here's what the agent does:
+
+✅ Reads every new purchase order in n8n
+✅ Checks it against the approved budget
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 310 purchase orders approved last month with two clicks each.
+
+#AI #automation #futureofwork #innovation #productivity"
+2025-11-10,text,3504,48,4,1,"Stop hiring people to do candidate screening.
+
+Here's what the agent does:
+
+✅ Reads every new application in Ashby
+✅ Checks it against the job scorecard
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 700 applications screened in the time it took to read 50.
+
+What is the first process you would hand to an agent?"
+2025-11-03,video,1243,16,4,2,"How many hours does your team lose to candidate screening every week?
+
+How to automate candidate screening this week:
+
+1. Write down every step, including the annoying ones
+2. Mark the steps that need judgement
+3. Automate the rest with Ashby
+4. Let a human approve the output for two weeks
+5. Remove the approval once the error rate is near zero
+
+Most teams skip step 1. That's why their automation breaks.
+
+Full walkthrough in the first comment."
+2025-10-28,text,781,14,3,1,"Candidate screening is the most underrated process to automate.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's candidate screening or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+#AI #automation #futureofwork #innovation #productivity"
+2025-10-21,text,12242,183,223,16,"How many hours does your team lose to purchase orders every week?
+
+Here's what the agent does:
+
+✅ Reads every new purchase order in n8n
+✅ Checks it against the approved budget
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €30 a month.
+
+Result: 310 purchase orders approved last month with two clicks each.
+
+Want the workflow?
+Comment ORDERS and I'll send it to you."
+2025-10-17,text,164,4,1,0,"AI is changing the way we work.
+
+Companies that embrace innovation will thrive. Those that don't will fall behind.
+
+Whether it's support triage or strategy, the key is to align people, process and technology around a shared vision.
+
+It's not about the tools. It's about the mindset.
+
+Agree?"
+2025-10-11,text,16059,194,287,13,"This agent took weekly reporting off our plate. 5 hours a week.
+
+Here's what the agent does:
+
+✅ Reads every new Monday report in Google Sheets
+✅ Checks it against last week's numbers
+✅ Flags the exceptions for a human
+✅ Logs everything in one sheet
+
+Build time: one afternoon.
+Running cost: about €10 a month.
+
+Result: the Monday report now lands at 7:00, before anyone opens a laptop.
+
+Want the workflow?
+Comment REPORT and I'll send it to you."
+2025-10-06,carousel,1840,33,2,0,"Candidate screening is the most underrated process to automate.
+
+The ops lead showed me their spreadsheet.
+
+14 tabs. Colour codes only they understood.
+Every Monday the whole morning went to candidate screening.
+
+We mapped the process on a whiteboard in two hours.
+Three steps were pure copy and paste.
+
+We automated those three with Ashby.
+
+Last Monday they were done by 9:40.
+
+Start with the boring part, not the clever part.
+
+#AI #automation #futureofwork #innovation #productivity"

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Viral Meter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--panel:#121212;--panel2:#181818;--border:#262626;--text:#F2F2F2;--muted:#9A9A9A;--lime:#D4F84C;--lime-dim:rgba(212,248,76,.14);--violet:#7C5CFF;--red:#FF5C5C;--amber:#FFB84D;--green:#7EE787;--radius:16px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto 0;height:520px;pointer-events:none;z-index:0;background:radial-gradient(60% 55% at 20% -10%,rgba(124,92,255,.35),transparent 60%),radial-gradient(50% 50% at 80% -20%,rgba(212,248,76,.22),transparent 60%)}
+h1,h2,h3{font-family:"Funnel Display",Inter,system-ui,sans-serif;letter-spacing:-.01em}
+h1{font-size:34px;margin:0;font-weight:600}
+h2{font-size:22px;margin:0 0 6px;font-weight:600}
+h3{font-size:14px;margin:18px 0 8px;font-weight:600;color:var(--lime);text-transform:uppercase;letter-spacing:.08em}
+a{color:var(--lime)}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 16px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.brand{display:flex;align-items:center;gap:14px}
+.sub{color:var(--muted);font-size:14px}
+.settings{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+select,textarea,input[type=text]{background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:8px 10px;font:inherit}
+select{font-size:12px;padding:6px 8px}
+select:focus,textarea:focus{outline:none;border-color:var(--lime)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.num{flex:0 0 40px;height:40px;border-radius:12px;background:var(--lime-dim);color:var(--lime);display:flex;align-items:center;justify-content:center;font-family:"Funnel Display";font-weight:700;font-size:18px}
+.step>div:not(.num){flex:1;min-width:0}
+.btn{background:var(--lime);color:#0A0A0A;border:0;border-radius:999px;padding:11px 20px;font:600 14px Inter,system-ui;cursor:pointer;transition:transform .1s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn.small{padding:6px 12px;font-size:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.drop{border:1px dashed #3a3a3a;border-radius:14px;padding:26px;text-align:center;color:var(--muted);cursor:pointer;transition:border-color .2s,background .2s}
+.drop.over,.drop:hover{border-color:var(--lime);background:var(--lime-dim)}
+.drop input{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:var(--panel2);border:1px solid var(--border);font-size:12px;color:var(--text);text-decoration:none}
+.chip.viral{border-color:var(--lime);color:var(--lime)} .chip.good{border-color:var(--green);color:var(--green)} .chip.average{border-color:var(--amber);color:var(--amber)} .chip.flop{border-color:var(--red);color:var(--red)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+.stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-family:"Funnel Display";font-size:24px;font-weight:600}
+.stat span{color:var(--muted);font-size:12px}
+.muted{color:var(--muted)} .small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:14px 0}
+.map label{font-size:12px;color:var(--muted);display:block;margin-bottom:4px}
+.map select{width:100%}
+.warn{background:rgba(255,184,77,.12);border:1px solid rgba(255,184,77,.4);color:var(--amber);border-radius:10px;padding:10px 12px;font-size:13px;margin:10px 0}
+.err{background:rgba(255,92,92,.12);border:1px solid rgba(255,92,92,.4);color:var(--red);border-radius:10px;padding:10px 12px;font-size:13px;margin:10px 0}
+.ok{background:var(--lime-dim);border:1px solid rgba(212,248,76,.35);color:var(--lime);border-radius:10px;padding:10px 12px;font-size:13px;margin:10px 0}
+.pattern{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pattern>b{display:block;margin-bottom:2px}
+.pattern p{margin:3px 0;font-size:12.5px}
+.pattern .apply{color:var(--lime)}
+ul.clean{margin:6px 0;padding-left:18px} ul.clean li{margin:4px 0;font-size:13.5px}
+.bar{height:8px;border-radius:999px;background:#242424;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--lime);border-radius:999px;transition:width .5s ease}
+.progress{margin:14px 0}
+.progress .bar{height:12px}
+.contrib{display:grid;grid-template-columns:1fr 130px 54px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px}
+.contrib .n{color:var(--muted);font-size:11px}
+.gauge{position:relative;width:260px;margin:0 auto}
+.gauge .val{position:absolute;left:0;right:0;top:78px;text-align:center;font-family:"Funnel Display";font-size:56px;font-weight:700;line-height:1}
+.gauge .lbl{position:absolute;left:0;right:0;top:140px;text-align:center;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.badge{display:inline-block;padding:5px 12px;border-radius:999px;font-weight:600;font-size:13px}
+.badge.viral{background:var(--lime);color:#0A0A0A}.badge.good{background:var(--green);color:#0A0A0A}.badge.average{background:var(--amber);color:#0A0A0A}.badge.flop{background:var(--red);color:#fff}
+.rewrite{background:#0f0f0f;border:1px solid var(--border);border-left:3px solid var(--lime);border-radius:8px;padding:10px 12px;white-space:pre-wrap;font-size:13px;margin:6px 0}
+.copy{float:right;margin-left:8px}
+.check{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12.5px}
+.v.viral-like{color:var(--lime)}.v.flop-like{color:var(--red)}.v.neutral{color:var(--muted)}
+.hist{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:13px}
+.hist:hover{color:var(--lime)}
+.hist .sc{flex:0 0 46px;text-align:center;font-family:"Funnel Display";font-weight:700;font-size:18px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--lime);border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+textarea{width:100%;min-height:220px;resize:vertical;line-height:1.55}
+.hidden{display:none}
+details summary{cursor:pointer;color:var(--muted);font-size:13px;margin:8px 0}
+.post{border-bottom:1px solid var(--border);padding:8px 0;font-size:13px}
+.post .m{color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}
+.tab{padding:5px 11px;border-radius:999px;border:1px solid var(--border);font-size:12px;cursor:pointer;color:var(--muted)}
+.tab.on{border-color:var(--lime);color:var(--lime)}
+.toggle{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer}
+.toggle input{accent-color:var(--lime)}
+.engine{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);font-size:12px;color:var(--muted)}
+.engine i{width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block}
+.live{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div>
+        <h1>LinkedIn Viral Meter</h1>
+        <div class="sub">Drop your post export, watch the patterns appear, score a draft before you hit post.</div>
+      </div>
+    </div>
+    <div class="settings">
+      <span class="engine" id="engine"><i></i>Jev</span>
+      <span>Claude extras:</span><select id="analyzeModel" title="model for 'Explain in words'"></select><select id="scoreModel" title="model for 'Rewrite'"></select>
+      <button class="btn ghost small" id="resetBtn">Reset</button>
+    </div>
+  </header>
+  <div id="keyWarn" class="err hidden">OPENROUTER_API_KEY is missing in .env. Add it and restart the server.</div>
+
+  <section class="card step">
+    <div class="num">1</div>
+    <div>
+      <h2>Your posts</h2>
+      <div class="muted small">A CSV with post text plus impressions or reactions, for example an export from MagicPost, Taplio, Shield or AuthoredUp, or your own scrape. The "Shares" file from the LinkedIn data download has no metrics and will not work. No export at hand? Try <code>examples/posts.sample.csv</code> (60 made-up posts).</div>
+      <div id="datasetInfo"></div>
+      <div class="drop" id="drop" style="margin-top:14px">
+        <input type="file" id="file" accept=".csv,.txt,.tsv">
+        <div><b>Drop a CSV here</b> or click to choose one</div>
+        <div class="small" id="fileName"></div>
+      </div>
+      <div id="inspect" class="hidden">
+        <div id="inspectWarnings"></div>
+        <div class="map" id="mapping"></div>
+        <div class="row">
+          <span class="small muted">Rank by</span>
+          <select id="metric"><option value="auto">auto (impressions if present)</option><option value="impressions">impressions</option><option value="engagement">weighted engagement</option><option value="comments">comments</option></select>
+          <button class="btn" id="loadBtn">Load posts and find patterns</button>
+          <span id="loadStatus" class="small muted"></span>
+        </div>
+      </div>
+      <div id="topPosts"></div>
+    </div>
+  </section>
+
+  <section class="card step">
+    <div class="num">2</div>
+    <div>
+      <h2>Patterns</h2>
+      <div class="muted small">Jev labels every post with 55 typed questions in parallel. A classifier trained on your own numbers then shows what separates your viral posts from your flops.</div>
+      <div id="analyzeControls" class="row" style="margin-top:14px">
+        <button class="btn" id="analyzeBtn" disabled>Find patterns</button>
+        <span id="analyzeStatus" class="small muted"></span>
+      </div>
+      <div id="progress" class="progress hidden"><div class="bar"><i id="progressBar" style="width:0%"></i></div><div class="row small muted" style="margin-top:6px;justify-content:space-between"><span id="progressText"></span><button class="btn ghost small" id="cancelBtn">Cancel</button></div></div>
+      <div id="patterns"></div>
+      <div id="explainWrap" class="hidden"><div class="row" style="margin-top:18px"><button class="btn ghost" id="explainBtn">Explain in words (Claude)</button><span id="explainStatus" class="small muted"></span></div><div id="playbook"></div></div>
+    </div>
+  </section>
+
+  <section class="card step">
+    <div class="num">3</div>
+    <div>
+      <h2>Viral meter</h2>
+      <div class="muted small">Paste a draft. One Jev call plus your model, about a second. Turn on Live to re-score while you type, then stop when it peaks.</div>
+      <textarea id="draft" placeholder="Paste your LinkedIn draft here..." style="margin-top:14px"></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" id="scoreBtn" disabled>Measure</button>
+        <label class="toggle"><input type="checkbox" id="liveToggle"> Live</label>
+        <span id="scoreStatus" class="small muted"></span>
+        <span style="flex:1"></span>
+        <svg id="trail" width="220" height="44" viewBox="0 0 220 44" class="hidden"></svg>
+      </div>
+      <div id="result"></div>
+      <div id="rewriteWrap" class="hidden"><div class="row" style="margin-top:16px"><button class="btn ghost" id="rewriteBtn">Rewrite with Claude</button><span id="rewriteStatus" class="small muted"></span></div><div id="rewrite"></div></div>
+      <div id="history"></div>
+    </div>
+  </section>
+  <footer>Local tool. Data stays in <code>data/</code>. Pattern search and scoring run on TypeSafe Jev through OpenRouter; Claude only when you click a Claude button.</footer>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (n) => (n === null || n === undefined ? '-' : Number(n).toLocaleString('en-US'));
+const pct = (x) => `${Math.round(x * 100)}%`;
+const api = async (path, body) => {
+  const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  const j = await r.json().catch(() => ({ error: 'bad response' }));
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+};
+let state = { dataset: null, analysis: null, playbook: null, history: [], settings: {}, model_choices: [] };
+let csvText = null, csvName = null, inspectInfo = null, refIndex = {}, es = null, lastResult = null, trail = [];
+
+// ---------- boot ----------
+async function boot() {
+  state = await api('/api/state');
+  if (!state.has_key) $('#keyWarn').classList.remove('hidden');
+  $('#engine').innerHTML = `<i></i>${esc(state.jev.model)} via ${esc(state.jev.via)}`;
+  for (const id of ['analyzeModel', 'scoreModel']) {
+    const sel = $('#' + id);
+    sel.innerHTML = state.model_choices.map((m) => `<option value="${esc(m)}">${esc(m.replace(/^\w+\//, ''))}</option>`).join('');
+    sel.value = state.settings[id === 'analyzeModel' ? 'analyze_model' : 'score_model'];
+    sel.onchange = () => api('/api/settings', { [id === 'analyzeModel' ? 'analyze_model' : 'score_model']: sel.value });
+  }
+  renderDataset();
+  if (state.dataset) await loadRefIndex();
+  renderAnalysis(state.analysis);
+  renderPlaybook();
+  renderHistory();
+  if (state.job?.running) attachStream();
+  else if (state.dataset && !state.analysis) $('#analyzeStatus').textContent = 'Posts loaded. Click Find patterns.';
+  if (state.history.length) { $('#draft').value = state.history[0].text; lastResult = state.history[0]; renderResult(state.history[0]); }
+}
+async function loadRefIndex() {
+  const { posts } = await api('/api/posts');
+  refIndex = Object.fromEntries(posts.map((p) => [p.ref, p]));
+  renderTopPosts(posts);
+}
+const refChip = (ref) => { const p = refIndex[ref]; return p ? `<a class="chip ${p.bucket}" href="${esc(p.url || '#')}" target="_blank" title="${esc(p.hook)} · ${fmt(p.metric)}">${esc(ref)}</a>` : `<span class="chip">${esc(ref)}</span>`; };
+
+// ---------- step 1 ----------
+function renderDataset() {
+  const d = state.dataset;
+  $('#analyzeBtn').disabled = !d;
+  $('#scoreBtn').disabled = !(d && state.analysis);
+  if (!d) { $('#datasetInfo').innerHTML = ''; $('#topPosts').innerHTML = ''; return; }
+  const b = d.buckets;
+  $('#datasetInfo').innerHTML = `
+    <div class="ok" style="margin-top:12px">Loaded <b>${esc(d.source?.name || 'dataset')}</b> · ${d.total} posts, ${d.eligible} ranked by ${esc(d.metricLabel)}${d.excluded ? ` (${d.excluded} excluded: reposts, empty or younger than 2 days)` : ''} · latest ${esc(d.latest_date || '-')}</div>
+    <div class="grid3" style="margin-top:12px">
+      <div class="stat"><b>${fmt(d.viral_threshold)}</b><span>your "viral" line: top 20% starts here (${esc(d.metricKey)})</span></div>
+      <div class="stat"><b>${fmt(b.viral.metric_median)}</b><span>median ${esc(d.metricKey)} of a viral post (${b.viral.n} posts)</span></div>
+      <div class="stat"><b>${fmt(b.flop.metric_median)}</b><span>median ${esc(d.metricKey)} of a flop (${b.flop.n} posts)</span></div>
+    </div>`;
+}
+function renderTopPosts(posts) {
+  const top = posts.filter((p) => p.bucket === 'viral').slice(0, 8);
+  const flop = posts.filter((p) => p.bucket === 'flop').slice(-5).reverse();
+  const item = (p) => `<div class="post">${refChip(p.ref)} <a href="${esc(p.url || '#')}" target="_blank" style="color:inherit;text-decoration:none">${esc(p.hook)}</a><div class="m">${fmt(p.impressions)} impressions · ${fmt(p.likes)} reactions · ${fmt(p.comments)} comments · ${fmt(p.reposts)} reposts · ${esc(p.format || '')} · ${esc(String(p.date || '').slice(0, 10))}</div></div>`;
+  $('#topPosts').innerHTML = `<details><summary>Your best 8 and worst 5 posts</summary><h3>Best</h3>${top.map(item).join('')}<h3>Worst</h3>${flop.map(item).join('')}</details>`;
+}
+const drop = $('#drop');
+drop.onclick = () => $('#file').click();
+drop.ondragover = (e) => { e.preventDefault(); drop.classList.add('over'); };
+drop.ondragleave = () => drop.classList.remove('over');
+drop.ondrop = (e) => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]); };
+$('#file').onchange = (e) => { if (e.target.files[0]) readFile(e.target.files[0]); };
+async function readFile(f) {
+  csvName = f.name; csvText = await f.text();
+  $('#fileName').textContent = `${f.name} (${Math.round(f.size / 1024)} KB)`;
+  try {
+    inspectInfo = await api('/api/csv/inspect', { csv: csvText });
+    $('#inspect').classList.remove('hidden');
+    $('#inspectWarnings').innerHTML = `<div class="small muted" style="margin-top:10px">${inspectInfo.rowCount} rows, ${inspectInfo.headers.length} columns. Check the column mapping:</div>` + inspectInfo.warnings.map((w) => `<div class="warn">${esc(w)}</div>`).join('');
+    const fields = [['text', 'Post text *'], ['impressions', 'Impressions'], ['likes', 'Reactions / likes'], ['comments', 'Comments'], ['reposts', 'Reposts'], ['date', 'Date'], ['url', 'URL'], ['format', 'Format'], ['id', 'Post id'], ['age_days', 'Age in days'], ['is_repost', 'Is repost (flag)']];
+    $('#mapping').innerHTML = fields.map(([k, l]) => `<div><label>${l}</label><select data-field="${k}"><option value="">(none)</option>${inspectInfo.headers.map((h) => `<option value="${esc(h)}" ${inspectInfo.mapping[k] === h ? 'selected' : ''}>${esc(h)}</option>`).join('')}</select></div>`).join('');
+  } catch (e) { $('#inspectWarnings').innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+}
+$('#loadBtn').onclick = async () => {
+  const mapping = {};
+  document.querySelectorAll('#mapping select').forEach((s) => { if (s.value) mapping[s.dataset.field] = s.value; });
+  $('#loadStatus').innerHTML = '<span class="spinner"></span>loading';
+  try {
+    const r = await api('/api/dataset', { csv: csvText, mapping, name: csvName, metric: $('#metric').value });
+    state.dataset = r.dataset; state.analysis = null; state.playbook = null; lastResult = null; trail = [];
+    $('#inspect').classList.add('hidden');
+    $('#loadStatus').textContent = '';
+    renderDataset(); renderAnalysis(null); renderPlaybook(); $('#result').innerHTML = ''; $('#rewriteWrap').classList.add('hidden');
+    await loadRefIndex();
+    attachStream();
+    $('#analyzeBtn').closest('section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (e) { $('#loadStatus').innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+};
+$('#resetBtn').onclick = async () => {
+  if (!confirm('Clear the loaded posts, patterns and scored drafts?')) return;
+  await api('/api/reset', {});
+  location.reload();
+};
+
+// ---------- step 2: live pattern search over SSE ----------
+$('#analyzeBtn').onclick = () => attachStream();
+$('#cancelBtn').onclick = () => api('/api/analyze/cancel', {});
+function attachStream() {
+  if (es) es.close();
+  $('#analyzeBtn').disabled = true;
+  $('#progress').classList.remove('hidden');
+  $('#analyzeStatus').innerHTML = '<span class="spinner"></span>Jev is reading your posts';
+  es = new EventSource('/api/analyze/stream');
+  es.addEventListener('progress', (e) => {
+    const p = JSON.parse(e.data);
+    $('#progressBar').style.width = `${Math.round((100 * p.done) / p.total)}%`;
+    $('#progressText').textContent = `${p.done}/${p.total} posts labeled · ${(p.elapsed_ms / 1000).toFixed(1)} s · $${p.cost.toFixed(4)}`;
+  });
+  es.addEventListener('partial', (e) => renderPatterns(JSON.parse(e.data), true));
+  es.addEventListener('done', (e) => {
+    state.analysis = JSON.parse(e.data);
+    es.close(); es = null;
+    $('#progress').classList.add('hidden');
+    $('#analyzeBtn').disabled = false;
+    $('#scoreBtn').disabled = false;
+    renderAnalysis(state.analysis);
+    $('#analyzeStatus').textContent = `Done: ${state.analysis.engine.calls} Jev calls in ${(state.analysis.engine.elapsed_ms / 1000).toFixed(1)} s, $${state.analysis.engine.cost_usd}`;
+  });
+  es.addEventListener('error', (e) => {
+    let msg = 'Connection lost';
+    try { msg = JSON.parse(e.data).error; } catch {}
+    if (es) { es.close(); es = null; }
+    $('#progress').classList.add('hidden');
+    $('#analyzeBtn').disabled = false;
+    $('#analyzeStatus').innerHTML = `<span class="err">${esc(msg)}</span>`;
+  });
+}
+function patternCard(p, bucket) {
+  const isProb = p.viral_share_on !== null;
+  const stat = isProb ? `Present in <b>${p.viral_share_on}%</b> of your viral posts vs <b>${p.flop_share_on}%</b> of flops.` : `Averages <b>${p.viral_mean}</b> in viral posts vs <b>${p.flop_mean}</b> in flops.`;
+  const rate = `When ${isProb ? 'present' : 'high'}: ${pct(p.viral_rate_on)} of posts go viral, median ${fmt(p.median_metric_on)}. When ${isProb ? 'absent' : 'low'}: ${pct(p.viral_rate_off)}, median ${fmt(p.median_metric_off)}.`;
+  return `<div class="pattern"><b>${esc(p.label)}</b><p>${stat}</p><p class="muted">${rate}</p><div class="chips" style="margin-top:6px">${(p.evidence || []).map(refChip).join('')}</div></div>`;
+}
+function renderPatterns(a, partial = false) {
+  if (!a) { $('#patterns').innerHTML = ''; return; }
+  $('#patterns').innerHTML = `
+    ${partial ? `<div class="live" style="margin-top:14px">live preview · ${a.labeled} posts labeled so far</div>` : ''}
+    <div class="grid2">
+      <div><h3>What your viral posts share</h3>${a.viral_patterns.map((p) => patternCard(p, 'viral')).join('') || '<div class="muted small">nothing yet</div>'}</div>
+      <div><h3>What your flops share</h3>${a.flop_patterns.map((p) => patternCard(p, 'flop')).join('') || '<div class="muted small">nothing yet</div>'}</div>
+    </div>`;
+}
+let activeTab = 'hook_type';
+function renderAnalysis(a) {
+  if (!a) { $('#patterns').innerHTML = ''; $('#explainWrap').classList.add('hidden'); return; }
+  renderPatterns(a, false);
+  const q = a.quality;
+  const quality = `<div class="grid3" style="margin:14px 0">
+    <div class="stat"><b>${q.n}</b><span>posts labeled by Jev (${q.positives} viral)</span></div>
+    <div class="stat"><b>${q.auc_cv === null ? '-' : Math.round(q.auc_cv * 10)}<span style="font-size:14px;color:var(--muted)"> / 10</span></b><span>times the model picks your viral post over a non-viral one (cross-validated AUC ${q.auc_cv})</span></div>
+    <div class="stat"><b>$${a.engine.cost_usd}</b><span>${a.engine.calls} Jev calls, ${(a.engine.elapsed_ms / 1000).toFixed(1)} s</span></div>
+  </div>`;
+  const tabIds = Object.keys(a.tables);
+  const tabs = `<div class="tabs">${tabIds.map((id) => `<span class="tab ${id === activeTab ? 'on' : ''}" data-id="${id}">${esc(a.tables[id].label)}</span>`).join('')}</div>`;
+  const table = (id) => { const t = a.tables[id]; return `<table><tr><th>${esc(t.label)}</th><th>posts</th><th>viral rate</th><th>median ${esc(a.metricKey)}</th><th>best</th></tr>${t.options.map((o) => `<tr><td>${esc(o.label)}</td><td>${o.n} <span class="muted">(${o.share}%)</span></td><td><div class="row" style="gap:6px"><div class="bar" style="width:70px"><i style="width:${Math.round(o.viral_rate * 100)}%"></i></div>${pct(o.viral_rate)}</div></td><td>${fmt(o.median_metric)}</td><td><div class="chips">${o.top_refs.map(refChip).join('')}</div></td></tr>`).join('')}</table>`; };
+  $('#patterns').insertAdjacentHTML('afterbegin', quality);
+  $('#patterns').insertAdjacentHTML('beforeend', `<h3>By type</h3>${tabs}<div id="tableWrap">${table(activeTab)}</div>`);
+  document.querySelectorAll('.tab').forEach((el) => { el.onclick = () => { activeTab = el.dataset.id; document.querySelectorAll('.tab').forEach((t) => t.classList.toggle('on', t === el)); $('#tableWrap').innerHTML = table(activeTab); }; });
+  $('#explainWrap').classList.remove('hidden');
+}
+
+// ---------- Claude extra: explain ----------
+$('#explainBtn').onclick = async () => {
+  $('#explainBtn').disabled = true;
+  $('#explainStatus').innerHTML = '<span class="spinner"></span>Claude is writing the playbook from your numbers (30-90 s)';
+  try {
+    const r = await api('/api/explain', { model: $('#analyzeModel').value });
+    state.playbook = r.playbook; renderPlaybook();
+    $('#explainStatus').textContent = `${r.playbook._meta.model} · $${(r.playbook._meta.cost_usd ?? 0).toFixed(3)}`;
+  } catch (e) { $('#explainStatus').innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+  $('#explainBtn').disabled = false;
+};
+function renderPlaybook() {
+  const pb = state.playbook;
+  if (!pb) { $('#playbook').innerHTML = ''; return; }
+  const chips = (refs) => `<div class="chips" style="margin-top:6px">${(refs || []).map(refChip).join('')}</div>`;
+  const pat = (x, keys) => `<div class="pattern"><b>${esc(x.pattern)}</b><p>${esc(x[keys[0]])}</p><p class="apply">→ ${esc(x[keys[1]])}</p>${chips(x.evidence_posts)}</div>`;
+  const hookT = (h) => `<div class="pattern"><b>${esc(h.type)}</b><p>“${esc(h.example_from_data)}” ${refChip(h.post_ref)}</p><p class="muted">${esc(h.note)}</p></div>`;
+  $('#playbook').innerHTML = `
+    <div class="small muted" style="margin:14px 0 6px">Written by ${esc(pb._meta.model)} from the Jev statistics · ${new Date(pb._meta.created_at).toLocaleString('en-GB')}</div>
+    <p style="font-size:16px;line-height:1.6">${esc(pb.summary)}</p>
+    <div class="grid2"><div><h3>Viral patterns, explained</h3>${pb.what_viral_posts_share.map((x) => pat(x, ['why_it_works', 'how_to_apply'])).join('')}</div><div><h3>Flop patterns, explained</h3>${pb.what_flops_share.map((x) => pat(x, ['why_it_fails', 'avoid_by'])).join('')}</div></div>
+    <div class="grid2"><div><h3>Hooks that win</h3>${pb.hooks.winning_hook_types.map(hookT).join('')}</div><div><h3>Hooks that fail</h3>${pb.hooks.failing_hook_types.map(hookT).join('')}</div></div>
+    <h3>Hook rules</h3><ul class="clean">${pb.hooks.hook_rules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+    <div class="grid2"><div><h3>Structure</h3><div class="grid2"><div class="stat"><b>${pb.structure.ideal_word_count_min}–${pb.structure.ideal_word_count_max}</b><span>ideal words</span></div><div class="stat"><b>${pb.structure.ideal_line_count_min}–${pb.structure.ideal_line_count_max}</b><span>ideal lines</span></div></div><ul class="clean">${pb.structure.formatting_rules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul><p class="small"><b>Ending and CTA:</b> ${esc(pb.structure.ending_and_cta)}</p><p class="small"><b>Formats and timing:</b> ${esc(pb.formats_and_timing)}</p></div>
+    <div><h3>Topics</h3><div class="chips">${pb.topics.map((t) => `<span class="chip ${esc(t.performance)}" title="${esc(t.note)}">${esc(t.topic)} · ${esc(t.performance)}</span>`).join('')}</div><h3>Where your data contradicts common advice</h3><ul class="clean">${pb.contradictions_with_common_advice.map((r) => `<li>${esc(r)}</li>`).join('')}</ul></div></div>
+    <h3>Pre-publish checklist</h3><ul class="clean">${pb.pre_publish_checklist.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>`;
+}
+
+// ---------- step 3: meter ----------
+let liveTimer = null, lastScoredText = '';
+$('#scoreBtn').onclick = () => measure(true);
+$('#draft').addEventListener('input', () => {
+  if (!$('#liveToggle').checked) return;
+  clearTimeout(liveTimer);
+  liveTimer = setTimeout(() => measure(false), 900);
+});
+$('#liveToggle').onchange = () => { if ($('#liveToggle').checked) measure(false); };
+async function measure(save) {
+  const text = $('#draft').value;
+  if (text.trim().length < 20) { if (save) $('#scoreStatus').innerHTML = '<span class="err">Paste a draft first.</span>'; return; }
+  if (!save && text === lastScoredText) return;
+  if (!state.analysis) { $('#scoreStatus').innerHTML = '<span class="err">Find patterns first.</span>'; return; }
+  $('#scoreBtn').disabled = true;
+  $('#scoreStatus').innerHTML = '<span class="spinner"></span>measuring';
+  try {
+    const r = await api('/api/score', { text, save });
+    lastScoredText = text; lastResult = r.result;
+    if (save) { state.history.unshift({ ...r.result, hook: text.split('\n').map((l) => l.trim()).filter(Boolean)[0] }); renderHistory(); }
+    trail.push(r.result.viral_score); renderTrail();
+    renderResult(r.result);
+    $('#scoreStatus').textContent = `${r.result.engine.total_ms} ms · $${Number(r.result.engine.cost_usd || 0).toFixed(5)}`;
+  } catch (e) { $('#scoreStatus').innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+  $('#scoreBtn').disabled = false;
+}
+function renderTrail() {
+  const svg = $('#trail');
+  if (trail.length < 2) { svg.classList.add('hidden'); return; }
+  svg.classList.remove('hidden');
+  const pts = trail.slice(-30);
+  const x = (i) => 6 + (i * 208) / Math.max(1, pts.length - 1);
+  const y = (v) => 40 - (v * 36) / 100;
+  const last = pts[pts.length - 1]; const prev = pts[pts.length - 2];
+  svg.innerHTML = `<polyline fill="none" stroke="#3a3a3a" stroke-width="1" points="6,40 214,40"/><polyline fill="none" stroke="${last >= prev ? 'var(--lime)' : 'var(--red)'}" stroke-width="2" stroke-linejoin="round" points="${pts.map((v, i) => `${x(i)},${y(v)}`).join(' ')}"/><circle cx="${x(pts.length - 1)}" cy="${y(last)}" r="3" fill="${last >= prev ? 'var(--lime)' : 'var(--red)'}"/><text x="214" y="10" text-anchor="end" fill="#9A9A9A" font-size="10">${last >= prev ? '▲' : '▼'} ${last}</text>`;
+}
+function gauge(score) {
+  const len = Math.PI * 100;
+  const color = score >= 80 ? 'var(--lime)' : score >= 50 ? 'var(--green)' : score >= 20 ? 'var(--amber)' : 'var(--red)';
+  return `<div class="gauge"><svg viewBox="0 0 260 150" width="260" height="150"><path d="M30 130 A100 100 0 0 1 230 130" fill="none" stroke="#242424" stroke-width="18" stroke-linecap="round"/><path d="M30 130 A100 100 0 0 1 230 130" fill="none" stroke="${color}" stroke-width="18" stroke-linecap="round" stroke-dasharray="${len}" stroke-dashoffset="${len * (1 - score / 100)}" style="transition:stroke-dashoffset .8s ease"/></svg><div class="val" style="color:${color}">${score}</div><div class="lbl">viral score</div></div>`;
+}
+function copyBtn(text) { return `<button class="btn ghost small copy" onclick="navigator.clipboard.writeText(this.dataset.t);this.textContent='copied'" data-t="${esc(text)}">copy</button>`; }
+const contribRow = (c, up, maxC) => `<div class="contrib"><div><b>${esc(c.label)}</b><div class="n">draft: ${esc(c.value)}</div></div><div class="bar"><i style="width:${Math.round((100 * Math.abs(c.contribution)) / (maxC || 1))}%;background:${up ? 'var(--lime)' : 'var(--red)'}"></i></div><div style="text-align:right;color:${up ? 'var(--lime)' : 'var(--red)'}">${up ? '+' : ''}${c.contribution.toFixed(2)}</div></div>`;
+function renderResult(r) {
+  const maxC = Math.max(...[...r.pulling_up, ...r.pulling_down].map((c) => Math.abs(c.contribution)), 0.01);
+  const jevOn = r.jev.filter((j) => j.kind === 'noul' && j.value >= 0.5).map((j) => `<span class="chip viral" title="${j.value}">${esc(j.label)}</span>`).join('');
+  const jevScores = r.jev.filter((j) => j.kind === 'score').map((j) => `<span class="chip" title="${esc(j.level)}">${esc(j.label)} ${j.value}/${j.max}</span>`).join('');
+  const jevChoice = r.jev.filter((j) => j.kind === 'choice').map((j) => `<span class="chip">${esc(j.label)}: ${esc(String(j.value).replace(/_/g, ' '))}</span>`).join('');
+  $('#result').innerHTML = `
+    <div class="grid2" style="margin-top:18px;align-items:center">
+      <div>${gauge(r.viral_score)}<div style="text-align:center;margin-top:6px"><span class="badge ${r.predicted_bucket}">${r.predicted_bucket}</span> <span class="muted small">· better than ${r.viral_score}% of your past posts</span></div></div>
+      <div class="grid2">
+        <div class="stat"><b>${pct(r.probability_top20)}</b><span>chance of landing in your top 20%</span></div>
+        <div class="stat"><b>${fmt(r.expected_metric)}</b><span>expected ${esc(r.metricKey)}</span></div>
+        <div class="stat" style="grid-column:1/-1"><span>Closest past posts</span>${r.closest_posts.map((c) => `<div class="post">${refChip(c.ref)} <span class="badge ${c.bucket}" style="font-size:10px;padding:2px 7px">${esc(c.bucket)}</span> ${esc(c.hook.slice(0, 80))}<div class="m">${fmt(c.metric)} ${esc(r.metricKey)} · similarity ${c.similarity}</div></div>`).join('')}</div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div><h3>Pulling your score up</h3>${r.pulling_up.map((c) => contribRow(c, true, maxC)).join('') || '<div class="muted small">nothing notable</div>'}</div>
+      <div><h3>Pulling your score down</h3>${r.pulling_down.map((c) => contribRow(c, false, maxC)).join('') || '<div class="muted small">nothing notable</div>'}</div>
+    </div>
+    <details><summary>What Jev saw in this draft</summary><div class="chips" style="margin:6px 0">${jevChoice}</div><div class="chips" style="margin:6px 0">${jevScores}</div><div class="chips" style="margin:6px 0">${jevOn}</div></details>
+    <details><summary>Structure vs your viral and flop posts</summary>${r.stat_check.map((c) => `<div class="check"><span>${esc(c.label)}: <b>${esc(c.value)}</b> <span class="muted">(viral ${esc(c.viral_avg)} · flop ${esc(c.flop_avg)})</span></span><span class="v ${c.verdict}">${c.verdict}</span></div>`).join('') || '<div class="muted small">No strong structural separators.</div>'}</details>`;
+  $('#rewriteWrap').classList.remove('hidden');
+  $('#rewrite').innerHTML = '';
+}
+
+// ---------- Claude extra: rewrite ----------
+$('#rewriteBtn').onclick = async () => {
+  if (!lastResult) return;
+  $('#rewriteBtn').disabled = true;
+  $('#rewriteStatus').innerHTML = '<span class="spinner"></span>Claude is rewriting (20-40 s)';
+  try {
+    const { rewrite: rw } = await api('/api/rewrite', { result: lastResult, model: $('#scoreModel').value });
+    $('#rewrite').innerHTML = `
+      <p style="font-size:15px;margin-top:12px">${esc(rw.verdict)}</p>
+      <div class="grid2">
+        <div><h3>Fixes</h3>${rw.fixes.map((f) => `<div class="pattern"><b>${esc(f.what)}</b><p class="muted">${esc(f.why)}</p><div class="rewrite">${copyBtn(f.rewrite)}${esc(f.rewrite)}</div></div>`).join('')}
+          <h3>Alternative hooks</h3>${rw.hook_alternatives.map((h) => `<div class="rewrite">${copyBtn(h)}${esc(h)}</div>`).join('')}
+          <h3>Director's cut line</h3><div class="pattern">${rw.director_cut_line.found ? `<b>“${esc(rw.director_cut_line.line)}”</b>` : '<b class="muted">Not found yet.</b>'}<p class="muted">${esc(rw.director_cut_line.note)}</p>${!rw.director_cut_line.found && rw.director_cut_line.line ? `<div class="rewrite">${copyBtn(rw.director_cut_line.line)}${esc(rw.director_cut_line.line)}</div>` : ''}</div></div>
+        <div><h3>Rewritten post</h3><div class="rewrite">${copyBtn(rw.rewritten_post)}${esc(rw.rewritten_post)}</div><button class="btn small" id="useRewrite">Use this draft and measure</button></div>
+      </div>`;
+    $('#useRewrite').onclick = () => { $('#draft').value = rw.rewritten_post; measure(true); $('#draft').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    $('#rewriteStatus').textContent = `${rw._meta.model} · $${(rw._meta.cost_usd ?? 0).toFixed(4)}`;
+  } catch (e) { $('#rewriteStatus').innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+  $('#rewriteBtn').disabled = false;
+};
+
+// ---------- history ----------
+function renderHistory() {
+  const h = state.history;
+  if (!h.length) { $('#history').innerHTML = ''; return; }
+  const col = (s) => (s >= 80 ? 'var(--lime)' : s >= 50 ? 'var(--green)' : s >= 20 ? 'var(--amber)' : 'var(--red)');
+  $('#history').innerHTML = `<details><summary>Previously scored drafts (${h.length})</summary>${h.map((x, i) => `<div class="hist" data-i="${i}"><div class="sc" style="color:${col(x.viral_score)}">${x.viral_score}</div><div style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(x.hook)}</div><div class="muted">${new Date(x.ts).toLocaleDateString('en-GB')}</div></div>`).join('')}</details>`;
+  document.querySelectorAll('.hist').forEach((el) => { el.onclick = () => { const x = h[+el.dataset.i]; $('#draft').value = x.text; lastResult = x; renderResult(x); window.scrollTo({ top: $('#result').offsetTop - 80, behavior: 'smooth' }); }; });
+}
+boot().catch((e) => { document.body.insertAdjacentHTML('afterbegin', `<div class="err">${esc(e.message)}</div>`); });
+</script>
+</body>
+</html>
